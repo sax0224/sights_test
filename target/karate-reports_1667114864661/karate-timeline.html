@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"pool-1-thread-1","id":1},{"content":"pool-1-thread-2","id":2},{"content":"pool-1-thread-3","id":3},{"content":"pool-1-thread-5","id":4},{"content":"pool-1-thread-4","id":5}];
+var items = [{"id":1,"group":1,"content":"features\/data[1.1:14]","start":1667114754535,"end":1667114755265,"title":"features\/data[1.1:14] 15:25:54.535-15:25:55.265 Retry until demo"},{"id":2,"group":2,"content":"features\/data[1.2:15]","start":1667114754535,"end":1667114755265,"title":"features\/data[1.2:15] 15:25:54.535-15:25:55.265 Retry until demo"},{"id":3,"group":3,"content":"features\/data[1.3:16]","start":1667114754535,"end":1667114755265,"title":"features\/data[1.3:16] 15:25:54.535-15:25:55.265 Retry until demo"},{"id":4,"group":4,"content":"features\/get[1:6]","start":1667114754535,"end":1667114755012,"title":"features\/get[1:6] 15:25:54.535-15:25:55.012 Test a simple Get API"},{"id":5,"group":4,"content":"features\/get[2:12]","start":1667114755022,"end":1667114755091,"title":"features\/get[2:12] 15:25:55.022-15:25:55.091 Set variable to test Get API","className":"failed"},{"id":6,"group":5,"content":"features\/delete[1:3]","start":1667114754535,"end":1667114755950,"title":"features\/delete[1:3] 15:25:54.535-15:25:55.950 Test DELETE API"},{"id":7,"group":4,"content":"features\/put[1:3]","start":1667114755282,"end":1667114756184,"title":"features\/put[1:3] 15:25:55.282-15:25:56.184 Test PUT API"},{"id":8,"group":4,"content":"features\/parameters[1:3]","start":1667114755098,"end":1667114755270,"title":"features\/parameters[1:3] 15:25:55.098-15:25:55.270 Use parameters to test Get API"},{"id":9,"group":3,"content":"features\/post[1:6]","start":1667114755277,"end":1667114757248,"title":"features\/post[1:6] 15:25:55.277-15:25:57.248 Test POST API"},{"id":10,"group":1,"content":"features\/post[2:15]","start":1667114755278,"end":1667114756196,"title":"features\/post[2:15] 15:25:55.278-15:25:56.196 Test POST API and check the response"},{"id":11,"group":2,"content":"features\/post[3:26]","start":1667114755277,"end":1667114756147,"title":"features\/post[3:26] 15:25:55.277-15:25:56.147 Test POST API from JSON file"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
